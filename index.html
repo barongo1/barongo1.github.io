@@ -29,7 +29,7 @@
 
 <body>
 
-    <!-- Header & Navigation -->
+    <!-- Header & Harmonized Navigation -->
     <header class="header">
         <div class="container navbar">
             <a href="#hero" class="nav-brand">
@@ -38,11 +38,8 @@
             </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#research" class="nav-link">Research (iCOMPASS)</a></li>
-                <li><a href="#agents" class="nav-link">AI Agents</a></li>
-                <li><a href="#teaching" class="nav-link">Teaching</a></li>
-                <li><a href="#media" class="nav-link">Media & Slides</a></li>
-                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#research" class="nav-link">Research & AI</a></li>
+                <li><a href="#teaching" class="nav-link">Teaching & Media</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li>
                     <a href="downloads/Anne Barongo Ondieki.pdf" class="btn-nav" download>
@@ -128,7 +125,7 @@
             </div>
         </div>
 
-        <!-- About Section -->
+        <!-- 1. ABOUT SECTION -->
         <section id="about" class="section">
             <div class="container">
                 <h2 class="section-title">About Me & Academic Background</h2>
@@ -144,7 +141,7 @@
                             Over my 30-year career, I have dedicated myself to fostering equity, Universal Design for Learning (UDL), and competency-based vocational education for learners with intellectual and developmental disabilities (IDD). My current research focuses on bridging the gap between cutting-edge Artificial Intelligence in Education (AIED) and resource-constrained special education environments across Africa.
                         </p>
                         <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
-                            <a href="#teaching" class="btn btn-outline">View Teaching Philosophy</a>
+                            <a href="#teaching" class="btn btn-outline">View Teaching & Media</a>
                         </div>
                     </div>
 
@@ -182,9 +179,10 @@
             </div>
         </section>
 
-        <!-- iCOMPASS Research Showcase -->
+        <!-- 2. RESEARCH & AI HUB (Combines iCOMPASS Framework, AI Agents Ecosystem, & Publications) -->
         <section id="research" class="section section-alt">
             <div class="container">
+                <!-- iCOMPASS Framework Showcase -->
                 <div class="icompass-banner">
                     <div class="icompass-header">
                         <div class="agent-badge" style="background: rgba(255,255,255,0.2); color: #ffffff;">Flagship Research Project</div>
@@ -222,79 +220,103 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- AI Agents Architecture Showcase -->
-        <section id="agents" class="section">
-            <div class="container">
-                <h2 class="section-title">AI Agents & Educational Architecture</h2>
-                <p class="section-subtitle">Exploring multi-agent AI ecosystems in inclusive education and specialized workspace agent workflows.</p>
+                <!-- AI Agents Architecture -->
+                <div style="margin-top: 4rem; margin-bottom: 4rem;">
+                    <h3 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem; color: var(--clr-brand-primary);"><i class="bi bi-robot"></i> AI Agents Architecture</h3>
+                    <p class="section-subtitle">Multi-agent AI ecosystem powering the iCOMPASS educational framework and workspace AI workflows.</p>
 
-                <h3 style="margin-bottom: 1.5rem; color: var(--clr-brand-primary);"><i class="bi bi-diagram-3-fill"></i> iCOMPASS Multi-Agent Assessment Ecosystem</h3>
-                <div class="agents-grid" style="margin-bottom: 3rem;">
-                    <div class="agent-card">
-                        <span class="agent-badge">Teacher Co-Pilot</span>
-                        <h4 class="agent-title">Instructor Co-Pilot Agent</h4>
-                        <p class="agent-desc">Assists special needs educators in analyzing learner performance data, drafting IEPs, generating rubric scores, and suggesting scaffolded interventions.</p>
-                    </div>
+                    <div class="agents-grid" style="margin-bottom: 2.5rem;">
+                        <div class="agent-card">
+                            <span class="agent-badge">Teacher Co-Pilot</span>
+                            <h4 class="agent-title">Instructor Co-Pilot Agent</h4>
+                            <p class="agent-desc">Assists special needs educators in analyzing learner performance data, drafting IEPs, generating rubric scores, and suggesting scaffolded interventions.</p>
+                        </div>
 
-                    <div class="agent-card">
-                        <span class="agent-badge">Adaptive Learning</span>
-                        <h4 class="agent-title">Learner Companion Agent</h4>
-                        <p class="agent-desc">Delivers adaptive, UDL-compliant formative tasks presented visually, vocally, or in simplified formats tailored to cognitive pace.</p>
-                    </div>
+                        <div class="agent-card">
+                            <span class="agent-badge">Adaptive Learning</span>
+                            <h4 class="agent-title">Learner Companion Agent</h4>
+                            <p class="agent-desc">Delivers adaptive, UDL-compliant formative tasks presented visually, vocally, or in simplified formats tailored to cognitive pace.</p>
+                        </div>
 
-                    <div class="agent-card">
-                        <span class="agent-badge">Family Bridge</span>
-                        <h4 class="agent-title">Family Engagement Agent</h4>
-                        <p class="agent-desc">Translates complex educational data into accessible, plain-language progress updates for parents and caregivers.</p>
-                    </div>
+                        <div class="agent-card">
+                            <span class="agent-badge">Family Bridge</span>
+                            <h4 class="agent-title">Family Engagement Agent</h4>
+                            <p class="agent-desc">Translates complex educational data into accessible, plain-language progress updates for parents and caregivers.</p>
+                        </div>
 
-                    <div class="agent-card">
-                        <span class="agent-badge">TVET Transition</span>
-                        <h4 class="agent-title">Vocational Placement Agent</h4>
-                        <p class="agent-desc">Maps learner competency achievement against industry standards to facilitate successful community work placements.</p>
+                        <div class="agent-card">
+                            <span class="agent-badge">TVET Transition</span>
+                            <h4 class="agent-title">Vocational Placement Agent</h4>
+                            <p class="agent-desc">Maps learner competency achievement against industry standards to facilitate successful community work placements.</p>
+                        </div>
                     </div>
                 </div>
 
-                <h3 style="margin-bottom: 1.5rem; color: var(--clr-brand-primary);"><i class="bi bi-gear-wide-connected"></i> Workspace Operational AI Agent Roster</h3>
-                <div class="teaching-grid">
-                    <div class="teaching-card">
-                        <h4><i class="bi bi-robot"></i> 8 Specialized AI Agents</h4>
-                        <ul>
-                            <li><strong>Profile Writer Agent:</strong> Academic bio generation</li>
-                            <li><strong>Research Summarizer Agent:</strong> iCOMPASS paper synthesis</li>
-                            <li><strong>Academic Editor Agent:</strong> APA 7th manuscript refining</li>
-                            <li><strong>Publication Writer Agent:</strong> Journal draft structuring</li>
-                            <li><strong>SEO & Visibility Agent:</strong> Google Scholar & ORCID tags</li>
-                            <li><strong>Fact Checker Agent:</strong> Data & citation verification</li>
-                            <li><strong>Executive Recruiter Agent:</strong> Academic CV optimization</li>
-                            <li><strong>Admissions Reviewer Agent:</strong> Grant proposal rubrics</li>
-                        </ul>
+                <!-- Publications & Manuscripts -->
+                <div style="margin-top: 3rem;">
+                    <h3 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem; color: var(--clr-brand-primary);"><i class="bi bi-journal-bookmark-fill"></i> Publications & Manuscripts</h3>
+                    <p class="section-subtitle">Scholarly manuscripts, thesis research, and conference abstracts.</p>
+
+                    <div class="tabs">
+                        <button class="tab-btn active" data-filter="all">All Outputs</button>
+                        <button class="tab-btn" data-filter="manuscript">Manuscripts</button>
+                        <button class="tab-btn" data-filter="thesis">Thesis</button>
+                        <button class="tab-btn" data-filter="conference">Conference Abstracts</button>
                     </div>
 
-                    <div class="teaching-card">
-                        <h4><i class="bi bi-tools"></i> Software & Research Tools</h4>
-                        <ul>
-                            <li><strong>Statistical Analysis:</strong> IBM SPSS, Jamovi, JASP, R</li>
-                            <li><strong>Qualitative Analysis:</strong> NVivo, ATLAS.ti, MAXQDA</li>
-                            <li><strong>Data Collection:</strong> Qualtrics, KoboToolbox, Google Forms</li>
-                            <li><strong>Data Visualization:</strong> Power BI, Excel Dashboards</li>
-                            <li><strong>Reference Management:</strong> Zotero, Mendeley, EndNote</li>
-                        </ul>
+                    <div class="pub-list">
+                        <!-- Publication 1 -->
+                        <div class="pub-card" data-category="manuscript">
+                            <span class="pub-tag">Manuscript Under Preparation</span>
+                            <h3 class="pub-title">iCOMPASS: An Ethical AI-Driven Collaborative Assessment Framework for Inclusive Competency-Based TVET Education in Low-Resource Contexts</h3>
+                            <p class="pub-authors"><strong>Anne Barongo Ondieki</strong> (2026). Target Journal: <em>Computers & Education</em>.</p>
+                            <p style="font-size: 0.95rem; color: var(--clr-text-muted); margin-bottom: 1rem;">
+                                Proposes an ethical AI-driven assessment framework tailored for TVET learners with intellectual and developmental disabilities in African low-resource educational contexts.
+                            </p>
+                            <div class="pub-actions">
+                                <button class="btn btn-outline btn-sm btn-copy-citation" data-citation="Ondieki, A. B. (2026). iCOMPASS: An Ethical AI-Driven Collaborative Assessment Framework for Inclusive Competency-Based TVET Education in Low-Resource Contexts. Manuscript under preparation.">
+                                    <i class="bi bi-clipboard"></i> Copy Citation
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Publication 2 -->
+                        <div class="pub-card" data-category="thesis">
+                            <span class="pub-tag">Master's Thesis</span>
+                            <h3 class="pub-title">AI-Driven Inclusive Assessment Systems for Learners with Intellectual and Developmental Disabilities in Kenyan TVET Institutions</h3>
+                            <p class="pub-authors"><strong>Anne Barongo Ondieki</strong>. Master of Education Thesis, Jomo Kenyatta University of Agriculture and Technology (JKUAT).</p>
+                            <p style="font-size: 0.95rem; color: var(--clr-text-muted); margin-bottom: 1rem;">
+                                Investigates the integration of AIED, learning analytics, and Universal Design for Learning (UDL) to improve competency-based assessment outcomes.
+                            </p>
+                        </div>
+
+                        <!-- Publication 3 -->
+                        <div class="pub-card" data-category="conference">
+                            <span class="pub-tag">Conference Abstract</span>
+                            <h3 class="pub-title">iCOMPASS Conference Abstract & Presentation Series</h3>
+                            <p class="pub-authors"><strong>Anne Barongo Ondieki</strong> (2026). International Conference on Inclusive Education & Educational Technology.</p>
+                            <p style="font-size: 0.95rem; color: var(--clr-text-muted); margin-bottom: 1rem;">
+                                Convergent mixed-methods study exploring educator experiences, implementation challenges, and ethical AI governance in special education.
+                            </p>
+                            <div class="pub-actions">
+                                <a href="ai/documents/iCOMPASS Conference Abstract (1).docx" class="btn btn-outline btn-sm" download>
+                                    <i class="bi bi-file-earmark-word-fill"></i> Download Abstract (.DOCX)
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Teaching & SNE Portfolio -->
-        <section id="teaching" class="section section-alt">
+        <!-- 3. TEACHING & MEDIA HUB (Combines Teaching Portfolio, Leadership, & Media Center) -->
+        <section id="teaching" class="section">
             <div class="container">
-                <h2 class="section-title">Teaching & Vocational Portfolio</h2>
-                <p class="section-subtitle">30+ years of dedicated service in inclusive education, functional literacy, and TVET vocational skill development.</p>
+                <h2 class="section-title">Teaching & Media Center</h2>
+                <p class="section-subtitle">30+ years of special needs education leadership, instructional innovations, and conference presentations.</p>
 
-                <div class="teaching-grid">
+                <div class="teaching-grid" style="margin-bottom: 4rem;">
                     <div class="teaching-card">
                         <h4><i class="bi bi-journal-text"></i> Core Instructional Areas</h4>
                         <ul>
@@ -328,85 +350,26 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Media & Presentation Center -->
-        <section id="media" class="section">
-            <div class="container">
-                <h2 class="section-title">Media & Presentation Center</h2>
-                <p class="section-subtitle">Watch the video presentation and download conference slide decks from the iCOMPASS research project.</p>
+                <!-- Video Presentation & Slide Deck -->
+                <div style="background: var(--clr-bg-alt); padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--clr-border);">
+                    <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--clr-brand-primary);"><i class="bi bi-play-circle-fill"></i> Research Video & Presentation Slides</h3>
+                    <p class="section-subtitle" style="margin-bottom: 2rem;">Watch the research video presentation and download the conference slide deck.</p>
 
-                <div class="media-grid">
-                    <div class="video-container">
-                        <video controls poster="ai/documents/Earlier assessment 1.jpeg">
-                            <source src="ai/documents/AI___Vocational_Education.mp4" type="video/mp4">
-                            Your browser does not support HTML5 video playback.
-                        </video>
-                    </div>
-
-                    <div class="media-card">
-                        <h4><i class="bi bi-easel-fill"></i> Presentation Slide Deck</h4>
-                        <p><strong>iCOMPASS: Re-engineering Inclusive TVET Education through Collaborative AI-Supported Assessment</strong></p>
-                        <p>Explore the complete conference presentation slides covering background rationale, UDL integration, ethical AI governance, and empirical methodology.</p>
-                        <a href="ai/documents/iCOMPASS_Re-engineering_Inclusive_TVET (1) (2) (1).pptx" class="btn btn-primary" download>
-                            <i class="bi bi-file-earmark-ppt-fill"></i> Download Presentation (.PPTX)
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Publications & Manuscripts -->
-        <section id="publications" class="section section-alt">
-            <div class="container">
-                <h2 class="section-title">Publications & Manuscripts</h2>
-                <p class="section-subtitle">Scholarly manuscripts, conference abstracts, thesis research, and technical reports.</p>
-
-                <div class="tabs">
-                    <button class="tab-btn active" data-filter="all">All Outputs</button>
-                    <button class="tab-btn" data-filter="manuscript">Manuscripts</button>
-                    <button class="tab-btn" data-filter="thesis">Thesis</button>
-                    <button class="tab-btn" data-filter="conference">Conference Abstracts</button>
-                </div>
-
-                <div class="pub-list">
-                    <!-- Publication 1 -->
-                    <div class="pub-card" data-category="manuscript">
-                        <span class="pub-tag">Manuscript Under Preparation</span>
-                        <h3 class="pub-title">iCOMPASS: An Ethical AI-Driven Collaborative Assessment Framework for Inclusive Competency-Based TVET Education in Low-Resource Contexts</h3>
-                        <p class="pub-authors"><strong>Anne Barongo Ondieki</strong> (2026). Target Journal: <em>Computers & Education</em>.</p>
-                        <p style="font-size: 0.95rem; color: var(--clr-text-muted); margin-bottom: 1rem;">
-                            Proposes an ethical AI-driven assessment framework tailored for TVET learners with intellectual and developmental disabilities in African low-resource educational contexts.
-                        </p>
-                        <div class="pub-actions">
-                            <button class="btn btn-outline btn-sm btn-copy-citation" data-citation="Ondieki, A. B. (2026). iCOMPASS: An Ethical AI-Driven Collaborative Assessment Framework for Inclusive Competency-Based TVET Education in Low-Resource Contexts. Manuscript under preparation.">
-                                <i class="bi bi-clipboard"></i> Copy Citation
-                            </button>
+                    <div class="media-grid">
+                        <div class="video-container">
+                            <video controls poster="ai/documents/Earlier assessment 1.jpeg">
+                                <source src="ai/documents/AI___Vocational_Education.mp4" type="video/mp4">
+                                Your browser does not support HTML5 video playback.
+                            </video>
                         </div>
-                    </div>
 
-                    <!-- Publication 2 -->
-                    <div class="pub-card" data-category="thesis">
-                        <span class="pub-tag">Master's Thesis</span>
-                        <h3 class="pub-title">AI-Driven Inclusive Assessment Systems for Learners with Intellectual and Developmental Disabilities in Kenyan TVET Institutions</h3>
-                        <p class="pub-authors"><strong>Anne Barongo Ondieki</strong>. Master of Education Thesis, Jomo Kenyatta University of Agriculture and Technology (JKUAT).</p>
-                        <p style="font-size: 0.95rem; color: var(--clr-text-muted); margin-bottom: 1rem;">
-                            Investigates the integration of AIED, learning analytics, and Universal Design for Learning (UDL) to improve competency-based assessment outcomes.
-                        </p>
-                    </div>
-
-                    <!-- Publication 3 -->
-                    <div class="pub-card" data-category="conference">
-                        <span class="pub-tag">Conference Abstract</span>
-                        <h3 class="pub-title">iCOMPASS Conference Abstract & Presentation Series</h3>
-                        <p class="pub-authors"><strong>Anne Barongo Ondieki</strong> (2026). International Conference on Inclusive Education & Educational Technology.</p>
-                        <p style="font-size: 0.95rem; color: var(--clr-text-muted); margin-bottom: 1rem;">
-                            Convergent mixed-methods study exploring educator experiences, implementation challenges, and ethical AI governance in special education.
-                        </p>
-                        <div class="pub-actions">
-                            <a href="ai/documents/iCOMPASS Conference Abstract (1).docx" class="btn btn-outline btn-sm" download>
-                                <i class="bi bi-file-earmark-word-fill"></i> Download Abstract (.DOCX)
+                        <div class="media-card">
+                            <h4><i class="bi bi-easel-fill"></i> Presentation Slide Deck</h4>
+                            <p><strong>iCOMPASS: Re-engineering Inclusive TVET Education through Collaborative AI-Supported Assessment</strong></p>
+                            <p>Explore the complete conference presentation slides covering background rationale, UDL integration, ethical AI governance, and empirical methodology.</p>
+                            <a href="ai/documents/iCOMPASS_Re-engineering_Inclusive_TVET (1) (2) (1).pptx" class="btn btn-primary" download>
+                                <i class="bi bi-file-earmark-ppt-fill"></i> Download Slides (.PPTX)
                             </a>
                         </div>
                     </div>
@@ -414,8 +377,8 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section">
+        <!-- 4. CONTACT SECTION -->
+        <section id="contact" class="section section-alt">
             <div class="container">
                 <div class="contact-grid">
                     <div class="contact-info">
