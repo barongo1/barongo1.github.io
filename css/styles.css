@@ -3,8 +3,6 @@
    WCAG 2.1 AA Compliant, Glassmorphism, Modern CSS Grid/Flexbox
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Outfit:wght@400;500;600;700;800&display=swap');
-
 :root {
   /* Color Palette - Deep Academic Navy & Emerald Accent */
   --clr-bg-main: #f8fafc;
@@ -452,6 +450,25 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--clr-brand-secondary);
 }
 
+.profile-chip-muted {
+  color: var(--clr-text-muted);
+  cursor: default;
+}
+
+.profile-chip-muted:hover {
+  border-color: var(--clr-border);
+  color: var(--clr-text-muted);
+  transform: none;
+  box-shadow: none;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
 /* ==========================================================================
    About Section
    ========================================================================== */
@@ -604,10 +621,27 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    AI Agents Architecture Cards
    ========================================================================== */
+.research-subsection {
+  margin-top: 3rem;
+}
+
+.research-subsection-agents {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.subsection-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--clr-brand-primary);
+}
+
 .agents-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .agent-card {
@@ -621,7 +655,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-.agent-card::top-bar {
+.agent-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -649,6 +683,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.75rem;
 }
 
+.agent-badge-on-dark {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
 .agent-title {
   font-size: 1.2rem;
   font-weight: 700;
@@ -668,6 +707,10 @@ h1, h2, h3, h4, h5, h6 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+}
+
+.teaching-grid-spaced {
+  margin-bottom: 4rem;
 }
 
 .teaching-card {
@@ -715,6 +758,24 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    Media & Presentation Center
    ========================================================================== */
+.media-panel {
+  background: var(--clr-bg-alt);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--clr-border);
+}
+
+.media-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--clr-brand-primary);
+}
+
+.media-subtitle {
+  margin-bottom: 2rem;
+}
+
 .media-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -779,7 +840,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all var(--transition-fast);
 }
 
-.tab-btn:hover, .tab-btn.active {
+.tab-btn:hover, .tab-btn.active, .tab-btn[aria-selected="true"] {
   background: var(--clr-brand-primary);
   color: #ffffff;
   border-color: var(--clr-brand-primary);
@@ -829,17 +890,39 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.75rem;
 }
 
+.pub-description {
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  margin-bottom: 1rem;
+}
+
 .pub-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
-
 }
 
 .btn-sm {
   padding: 0.4rem 0.9rem;
   font-size: 0.85rem;
   border-radius: var(--radius-sm);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ==========================================================================
@@ -886,6 +969,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-md);
   padding: 2rem;
   box-shadow: var(--shadow-md);
+}
+
+.form-note {
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
 .form-group {
@@ -937,6 +1026,11 @@ textarea.form-input {
   margin-bottom: 2rem;
 }
 
+.footer-title {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
 .footer-copy {
   color: #64748b;
   text-align: center;
@@ -947,6 +1041,15 @@ textarea.form-input {
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (max-width: 992px) {
   .hero-grid, .about-grid, .media-grid, .contact-grid {
     grid-template-columns: 1fr;
@@ -957,6 +1060,15 @@ textarea.form-input {
 }
 
 @media (max-width: 768px) {
+  .container {
+    width: 94%;
+    padding: 0 0.75rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
   .mobile-toggle {
     display: block;
   }
@@ -969,12 +1081,35 @@ textarea.form-input {
     background: var(--clr-bg-dark);
     flex-direction: column;
     padding: 2rem;
+    overflow-y: auto;
     transition: left var(--transition-normal);
   }
   .nav-menu.active {
     left: 0;
   }
+  .hero {
+    padding-top: 115px;
+    padding-bottom: 56px;
+  }
+
   .hero-title {
     font-size: 2rem;
   }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .icompass-banner, .media-panel, .contact-form, .media-card {
+    padding: 1.5rem;
+  }
+
+  .subsection-title, .media-title {
+    font-size: 1.55rem;
+  }
 }
+

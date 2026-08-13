@@ -1,95 +1,149 @@
 /**
  * Anne Barongo Ondieki - Academic Portfolio Scripts
- * Handles mobile drawer nav, publication filter tabs, citation clipboard, and smooth scrolling
+ * Handles mobile drawer nav, publication filter tabs, citation clipboard, and active nav state.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile Navigation Drawer Toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
 
+  const setMobileMenu = (isOpen) => {
+    if (!mobileToggle || !navMenu) return;
+
+    navMenu.classList.toggle('active', isOpen);
+    mobileToggle.setAttribute('aria-expanded', String(isOpen));
+
+    const icon = mobileToggle.querySelector('i');
+    if (icon) {
+      icon.classList.toggle('bi-list', !isOpen);
+      icon.classList.toggle('bi-x-lg', isOpen);
+    }
+  };
+
   if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      const expanded = mobileToggle.getAttribute('aria-expanded') === 'true' || false;
-      mobileToggle.setAttribute('aria-expanded', !expanded);
+      const isOpen = mobileToggle.getAttribute('aria-expanded') === 'true';
+      setMobileMenu(!isOpen);
     });
 
-    // Close menu on link click
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        mobileToggle.setAttribute('aria-expanded', 'false');
-      });
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMobileMenu(false));
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        setMobileMenu(false);
+      }
     });
   }
 
-  // Publication Filter Tabs
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const pubCards = document.querySelectorAll('.pub-card');
+  const tabBtns = Array.from(document.querySelectorAll('.tab-btn'));
+  const pubCards = Array.from(document.querySelectorAll('.pub-card'));
 
-  if (tabBtns.length > 0 && pubCards.length > 0) {
+  const activateTab = (activeBtn) => {
+    const filter = activeBtn.getAttribute('data-filter');
+
     tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+      const isActive = btn === activeBtn;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', String(isActive));
+    });
 
-        const filter = btn.getAttribute('data-filter');
+    pubCards.forEach(card => {
+      const shouldShow = filter === 'all' || card.getAttribute('data-category') === filter;
+      card.hidden = !shouldShow;
+    });
+  };
 
-        pubCards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+  if (tabBtns.length && pubCards.length) {
+    tabBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => activateTab(btn));
+
+      btn.addEventListener('keydown', event => {
+        const direction = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+        if (!direction) return;
+
+        event.preventDefault();
+        const nextIndex = (index + direction + tabBtns.length) % tabBtns.length;
+        tabBtns[nextIndex].focus();
+        activateTab(tabBtns[nextIndex]);
       });
     });
   }
 
-  // Copy Citation Helper
-  const copyBtns = document.querySelectorAll('.btn-copy-citation');
-  copyBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
+  const citationStatus = document.createElement('div');
+  citationStatus.className = 'visually-hidden';
+  citationStatus.setAttribute('aria-live', 'polite');
+  document.body.appendChild(citationStatus);
+
+  const copyText = async (text) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    textarea.remove();
+  };
+
+  document.querySelectorAll('.btn-copy-citation').forEach(btn => {
+    btn.addEventListener('click', async event => {
+      event.preventDefault();
       const citationText = btn.getAttribute('data-citation');
-      if (citationText) {
-        navigator.clipboard.writeText(citationText).then(() => {
-          const originalText = btn.innerHTML;
-          btn.innerHTML = '<i class="bi bi-check2"></i> Copied!';
-          setTimeout(() => {
-            btn.innerHTML = originalText;
-          }, 2000);
-        }).catch(err => {
-          console.error('Failed to copy citation:', err);
-        });
+      if (!citationText) return;
+
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+
+      try {
+        await copyText(citationText);
+        btn.innerHTML = '<i class="bi bi-check2"></i> Copied';
+        citationStatus.textContent = 'Citation copied to clipboard.';
+      } catch (error) {
+        console.error('Failed to copy citation:', error);
+        btn.innerHTML = '<i class="bi bi-exclamation-triangle"></i> Copy failed';
+        citationStatus.textContent = 'Citation could not be copied.';
+      } finally {
+        window.setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 2000);
       }
     });
   });
 
-  // Active Navigation Highlighting on Scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = Array.from(document.querySelectorAll('section[id]'));
+  const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+  let ticking = false;
 
-  window.addEventListener('scroll', () => {
-    let current = '';
+  const updateActiveNav = () => {
     const scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 100;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        current = sectionId;
-      }
-    });
+    const current = sections.reduce((activeId, section) => {
+      const sectionTop = section.offsetTop - 110;
+      const sectionBottom = sectionTop + section.offsetHeight;
+      return scrollY >= sectionTop && scrollY < sectionBottom ? section.id : activeId;
+    }, 'hero');
 
     navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
+      link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
     });
-  });
+
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateActiveNav);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateActiveNav();
 });
