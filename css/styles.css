@@ -3,11 +3,13 @@
    WCAG 2.1 AA Compliant, Glassmorphism, Modern CSS Grid/Flexbox
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Outfit:wght@400;500;600;700;800&display=swap');
+
 :root {
   /* Color Palette - Deep Academic Navy & Emerald Accent */
   --clr-bg-main: #f8fafc;
   --clr-bg-card: #ffffff;
-  --clr-bg-nav: rgba(15, 23, 42, 0.85);
+  --clr-bg-nav: rgba(15, 23, 42, 0.88);
   --clr-bg-alt: #f1f5f9;
   --clr-bg-dark: #0f172a;
   
@@ -119,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   font-size: 1.125rem;
   color: var(--clr-text-muted);
-  max-width: 700px;
+  max-width: 760px;
   margin: 0 auto 3rem auto;
 }
 
@@ -172,7 +174,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 .nav-link {
@@ -180,7 +182,6 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
   font-weight: 500;
   transition: color var(--transition-fast);
-
 }
 
 .nav-link:hover, .nav-link.active {
@@ -421,7 +422,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.5rem 3rem;
+  gap: 1.5rem 2.5rem;
 }
 
 .profile-chip {
@@ -448,25 +449,6 @@ h1, h2, h3, h4, h5, h6 {
 .profile-chip i {
   font-size: 1.2rem;
   color: var(--clr-brand-secondary);
-}
-
-.profile-chip-muted {
-  color: var(--clr-text-muted);
-  cursor: default;
-}
-
-.profile-chip-muted:hover {
-  border-color: var(--clr-border);
-  color: var(--clr-text-muted);
-  transform: none;
-  box-shadow: none;
-}
-
-.about-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.5rem;
 }
 
 /* ==========================================================================
@@ -621,27 +603,10 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    AI Agents Architecture Cards
    ========================================================================== */
-.research-subsection {
-  margin-top: 3rem;
-}
-
-.research-subsection-agents {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
-
-.subsection-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: var(--clr-brand-primary);
-}
-
 .agents-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2.5rem;
 }
 
 .agent-card {
@@ -683,7 +648,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.75rem;
 }
 
-.agent-badge-on-dark {
+.agent-badge-dark {
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
 }
@@ -701,6 +666,136 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
+   Gtouch & SkillLink System Platform Showcase
+   ========================================================================== */
+.system-card {
+  background: var(--clr-bg-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.system-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--clr-border);
+  padding-bottom: 1.25rem;
+}
+
+.system-title-group h3 {
+  font-size: 1.75rem;
+  color: var(--clr-brand-primary);
+  margin-bottom: 0.35rem;
+}
+
+.system-tagline {
+  font-size: 1rem;
+  color: var(--clr-text-muted);
+}
+
+.package-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.system-overview-text {
+  font-size: 1.05rem;
+  color: var(--clr-text-main);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.system-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.module-box {
+  background: var(--clr-bg-main);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: all var(--transition-fast);
+}
+
+.module-box:hover {
+  border-color: var(--clr-brand-secondary);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.module-icon {
+  font-size: 1.5rem;
+  color: var(--clr-brand-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.module-box h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  color: var(--clr-brand-primary);
+}
+
+.module-box p {
+  font-size: 0.9rem;
+  color: var(--clr-text-muted);
+  line-height: 1.5;
+}
+
+.tech-stack-container {
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.tech-stack-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2dd4bf;
+}
+
+.tech-badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tech-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f8fafc;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
    Teaching & SNE Portfolio
    ========================================================================== */
 .teaching-grid {
@@ -709,17 +804,12 @@ h1, h2, h3, h4, h5, h6 {
   gap: 1.5rem;
 }
 
-.teaching-grid-spaced {
-  margin-bottom: 4rem;
-}
-
 .teaching-card {
   background: var(--clr-bg-card);
   border: 1px solid var(--clr-border);
   border-radius: var(--radius-md);
   padding: 1.75rem;
   box-shadow: var(--shadow-sm);
-
 }
 
 .teaching-card h4 {
@@ -756,68 +846,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Media & Presentation Center
-   ========================================================================== */
-.media-panel {
-  background: var(--clr-bg-alt);
-  padding: 3rem;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--clr-border);
-}
-
-.media-title {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  color: var(--clr-brand-primary);
-}
-
-.media-subtitle {
-  margin-bottom: 2rem;
-}
-
-.media-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  background: #000;
-}
-
-.video-container video {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.media-card {
-  background: var(--clr-bg-card);
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  box-shadow: var(--shadow-md);
-}
-
-.media-card h4 {
-  font-size: 1.35rem;
-  margin-bottom: 0.75rem;
-}
-
-.media-card p {
-  color: var(--clr-text-muted);
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-}
-
-/* ==========================================================================
    Publications & Tabs
    ========================================================================== */
 .tabs {
@@ -849,7 +877,7 @@ h1, h2, h3, h4, h5, h6 {
 .pub-list {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .pub-card {
@@ -861,31 +889,57 @@ h1, h2, h3, h4, h5, h6 {
   transition: border-color var(--transition-fast);
 }
 
+.pub-card.featured-pub {
+  border-left: 4px solid var(--clr-brand-secondary);
+  background: linear-gradient(to right, #ffffff, #fcfefe);
+}
+
 .pub-card:hover {
   border-color: var(--clr-brand-secondary);
 }
 
+.pub-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
 .pub-tag {
   display: inline-block;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.65rem;
   background: #e0f2fe;
   color: #0369a1;
   font-size: 0.75rem;
   font-weight: 700;
   border-radius: var(--radius-sm);
-  margin-bottom: 0.5rem;
+}
 
+.pub-tag-success {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.pub-metrics {
+  font-size: 0.8rem;
+  color: #64748b;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
 }
 
 .pub-title {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.4rem;
   color: var(--clr-brand-primary);
+  line-height: 1.4;
 }
 
 .pub-authors {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--clr-text-muted);
   margin-bottom: 0.75rem;
 }
@@ -894,6 +948,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
   color: var(--clr-text-muted);
   margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .pub-actions {
@@ -904,25 +959,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-sm {
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 1rem;
   font-size: 0.85rem;
   border-radius: var(--radius-sm);
-}
-
-.btn-full {
-  width: 100%;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
 
 /* ==========================================================================
@@ -969,12 +1008,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-md);
   padding: 2rem;
   box-shadow: var(--shadow-md);
-}
-
-.form-note {
-  color: var(--clr-text-muted);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
 }
 
 .form-group {
@@ -1026,11 +1059,6 @@ textarea.form-input {
   margin-bottom: 2rem;
 }
 
-.footer-title {
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-}
-
 .footer-copy {
   color: #64748b;
   text-align: center;
@@ -1051,11 +1079,15 @@ textarea.form-input {
 }
 
 @media (max-width: 992px) {
-  .hero-grid, .about-grid, .media-grid, .contact-grid {
+  .hero-grid, .about-grid, .contact-grid {
     grid-template-columns: 1fr;
   }
   .hero-title {
     font-size: 2.5rem;
+  }
+  .tech-stack-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -1104,12 +1136,7 @@ textarea.form-input {
     grid-template-columns: 1fr;
   }
 
-  .icompass-banner, .media-panel, .contact-form, .media-card {
+  .icompass-banner, .system-card, .contact-form {
     padding: 1.5rem;
   }
-
-  .subsection-title, .media-title {
-    font-size: 1.55rem;
-  }
 }
-
